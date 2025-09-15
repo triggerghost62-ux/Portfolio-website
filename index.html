@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aasish Adhikari</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        /* Custom Tailwind overrides and animations */
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .progress-bar {
+            height: 8px;
+            background-color: #4b5563;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-bar > div {
+            background-color: #0d9488;
+            height: 100%;
+            transition: width 0.3s ease-in-out;
+        }
+        /* Icon animations */
+        .icon-animate {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .icon-animate:hover {
+            transform: scale(1.2);
+            color: #0d9488;
+        }
+        /* Section fade-in animation */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* New hover effects for cards */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 antialiased">
+    <!-- Scroll to Top Button -->
+    <div class="scroll-up-btn fixed bottom-6 right-6 bg-teal-600 text-white p-3 rounded-full cursor-pointer hover:bg-teal-700 transition z-50 hidden">
+        <i class="fas fa-angle-up text-xl icon-animate"></i>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar bg-white shadow-lg sticky top-0 z-50" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div class="flex justify-between items-center py-4">
+                <div class="logo">
+                    <a href="#" class="text-2xl font-bold text-teal-600">Aasish<span class="text-gray-800">Portfolio</span></a>
+                </div>
+                <ul class="menu hidden md:flex space-x-6">
+                    <li><a href="#home" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Home</a></li>
+                    <li><a href="#about" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">About</a></li>
+                    <li><a href="#interests" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Interests</a></li>
+                    <li><a href="#skills" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Skills</a></li>
+                    <li><a href="#projects" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Projects</a></li>
+                    <li><a href="#contact" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Contact</a></li>
+                </ul>
+                <div class="menu-btn md:hidden text-gray-600 cursor-pointer">
+                    <i class="fas fa-bars text-2xl"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden bg-white shadow-lg md:hidden">
+            <ul class="flex flex-col space-y-4 p-4">
+                <li><a href="#home" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Home</a></li>
+                <li><a href="#about" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">About</a></li>
+                <li><a href="#interests" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Interests</a></li>
+                <li><a href="#skills" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Skills</a></li>
+                <li><a href="#projects" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Projects</a></li>
+                <li><a href="#contact" class="menu-btn text-gray-600 hover:text-teal-600 transition font-medium">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="home min-h-screen flex items-center bg-gradient-to-r from-teal-100 to-cyan-100" id="home">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="home-content text-center md:text-left">
+                    <h1 class="text-xl md:text-2xl lg:text-3xl text-gray-600">Hello, my name is</h1>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mt-2">Aasish Adhikari</h2>
+                    <h3 class="text-xl md:text-2xl lg:text-3xl text-gray-600 mt-2">And I'm a <span class="typing font-semibold text-teal-600"></span></h3>
+                    <a href="#contact" class="mt-6 inline-block bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition">Contact Me</a>
+                </div>
+                <div class="image-card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="profile.jpeg" alt="Aasish Adhikari" class="w-full h-auto max-h-[80vh] object-contain">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about py-16 bg-white" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-12">About Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="column left">
+                    <img src="profile1.jpeg" alt="Aasish Adhikari" class="w-full h-80 object-cover rounded-lg shadow-md">
+                </div>
+                <div class="column right">
+                    <h3 class="text-xl lg:text-2xl font-semibold text-gray-800">I'm Aasish and I'm a <span class="typing-2 text-teal-600"></span></h3>
+                    <p class="mt-4 text-gray-600 leading-relaxed">
+                        My name is Aasish Adhikari, and I come from Ratuwamai-10, Morang, Nepal. I am a dedicated student passionate about learning and exploring technology. My journey as a student has fueled my interest in various fields, and I am eager to apply my knowledge to real-world projects.
+                    </p>
+                    <a href="assets/Aasish_Adhikari_CV.pdf" download class="mt-6 inline-block bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition">Download CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section (Replaced Services) -->
+    <section class="interests py-16 bg-gray-100" id="interests">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-12">My Interests</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="box text-center">
+                        <i class="fas fa-laptop-code text-4xl text-teal-600 mb-4 icon-animate"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Programming</h3>
+                        <p class="mt-2 text-gray-600">
+                            Exploring coding languages and building small applications as part of my studies.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="box text-center">
+                        <i class="fas fa-palette text-4xl text-teal-600 mb-4 icon-animate"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Design</h3>
+                        <p class="mt-2 text-gray-600">
+                            Learning UI/UX principles to create visually appealing digital experiences.
+                        </p>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="box text-center">
+                        <i class="fas fa-book-open text-4xl text-teal-600 mb-4 icon-animate"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Technology Learning</h3>
+                        <p class="mt-2 text-gray-600">
+                            Staying updated with emerging technologies and applying them in academic projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills py-16 bg-white" id="skills">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-12">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="column left">
+                    <h3 class="text-xl lg:text-2xl font-semibold text-gray-800">My Learning Skills & Experiences</h3>
+                    <p class="mt-4 text-gray-600 leading-relaxed">
+                        As a student, I am building foundational skills in web technologies and programming. I enjoy experimenting with code and design to create simple yet effective solutions.
+                    </p>
+                    <div class="read-more-content mt-4">
+                        <p id="extra-content" class="text-gray-600 leading-relaxed hidden">
+                            Through coursework and personal projects, I am continuously expanding my knowledge in various tech areas, aiming to become proficient in development and design.
+                        </p>
+                    </div>
+                    <a id="read-more-btn" class="mt-4 inline-block text-teal-600 hover:text-teal-800 font-medium cursor-pointer">Read more</a>
+                </div>
+                <div class="column right space-y-6">
+                    <div class="bars">
+                        <div class="info flex justify-between text-sm font-medium text-gray-800">
+                            <span>HTML</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="w-[80%]"></div>
+                        </div>
+                    </div>
+                    <div class="bars">
+                        <div class="info flex justify-between text-sm font-medium text-gray-800">
+                            <span>CSS</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="w-[70%]"></div>
+                        </div>
+                    </div>
+                    <div class="bars">
+                        <div class="info flex justify-between text-sm font-medium text-gray-800">
+                            <span>JavaScript</span>
+                            <span>60%</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="w-[60%]"></div>
+                        </div>
+                    </div>
+                    <div class="bars">
+                        <div class="info flex justify-between text-sm font-medium text-gray-800">
+                            <span>Python</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="w-[65%]"></div>
+                        </div>
+                    </div>
+                    <div class="bars">
+                        <div class="info flex justify-between text-sm font-medium text-gray-800">
+                            <span>UI/UX Design</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="progress-bar mt-2">
+                            <div class="w-[50%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Replaced Portfolio) -->
+    <section class="projects py-16 bg-gray-100" id="projects">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-12">My Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="box text-center">
+                        <i class="fas fa-project-diagram text-4xl text-teal-600 mb-4 icon-animate"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Student Project 1</h3>
+                        <p class="mt-2 text-gray-600">A simple web page built as part of my learning journey.</p>
+                        <a href="https://example.com/project1" target="_blank" class="mt-4 inline-block bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition">View Project</a>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="box text-center">
+                        <i class="fas fa-project-diagram text-4xl text-teal-600 mb-4 icon-animate"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Student Project 2</h3>
+                        <p class="mt-2 text-gray-600">A basic Python script for data analysis.</p>
+                        <a href="https://example.com/project2" target="_blank" class="mt-4 inline-block bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition">View Project</a>
+                    </div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition">
+                    <div class="box text-center">
+                        <i class="fas fa-project-diagram text-4xl text-teal-600 mb-4 icon-animate"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Student Project 3</h3>
+                        <p class="mt-2 text-gray-600">A UI mockup for a mobile app using design tools.</p>
+                        <a href="https://example.com/project3" target="_blank" class="mt-4 inline-block bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact py-16 bg-white" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-800 mb-12">Contact Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="column left">
+                    <h3 class="text-xl lg:text-2xl font-semibold text-gray-800">Get in Touch</h3>
+                    <div class="icons mt-6 space-y-4">
+                        <div class="row flex items-center">
+                            <i class="fas fa-user text-teal-600 text-2xl mr-4 icon-animate"></i>
+                            <div class="info">
+                                <div class="head font-medium text-gray-800">Name</div>
+                                <div class="sub-title text-gray-600">Aasish Adhikari</div>
+                            </div>
+                        </div>
+                        <div class="row flex items-center">
+                            <i class="fas fa-map-marker-alt text-teal-600 text-2xl mr-4 icon-animate"></i>
+                            <div class="info">
+                                <div class="head font-medium text-gray-800">Address</div>
+                                <div class="sub-title text-gray-600">Ratuwamai-10, Morang, Nepal</div>
+                            </div>
+                        </div>
+                        <div class="row flex items-center">
+                            <i class="fas fa-phone text-teal-600 text-2xl mr-4 icon-animate"></i>
+                            <div class="info">
+                                <div class="head font-medium text-gray-800">Phone</div>
+                                <div class="sub-title text-gray-600">9708116704</div>
+                            </div>
+                        </div>
+                        <div class="row flex items-center">
+                            <i class="fas fa-envelope text-teal-600 text-2xl mr-4 icon-animate"></i>
+                            <div class="info">
+                                <div class="head font-medium text-gray-800">Email</div>
+                                <div class="sub-title text-gray-600">asishadhikari009@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column right">
+                    <h3 class="text-xl lg:text-2xl font-semibold text-gray-800">Message Me</h3>
+                    <form id="contact-form" class="mt-6 space-y-4">
+                        <div class="fields grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="field name">
+                                <input type="text" name="name" placeholder="Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600">
+                            </div>
+                            <div class="field email">
+                                <input type="email" name="email" placeholder="Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="subject" placeholder="Subject" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600">
+                        </div>
+                        <div class="field textarea">
+                            <textarea name="message" cols="30" rows="5" placeholder="Message.." required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-600"></textarea>
+                        </div>
+                        <div class="button-area">
+                            <button type="submit" class="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition">Send message</button>
+                        </div>
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="hidden" name="_template" value="table">
+                    </form>
+                    <div id="form-message" class="mt-4 text-center font-medium"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 text-center">
+            <span>Created By <a href="#" class="text-teal-400 hover:text-teal-300">Aasish Adhikari</a> | <span class="far fa-copyright"></span> 2025 All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- Embedded JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            try {
+                // Typed.js for typing animation with single cursor
+                var typed = new Typed(".typing", {
+                    strings: ["Student", "Learner", "Tech Enthusiast"],
+                    typeSpeed: 100,
+                    backSpeed: 60,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+                var typed2 = new Typed(".typing-2", {
+                    strings: ["Student", "Learner", "Tech Enthusiast"],
+                    typeSpeed: 100,
+                    backSpeed: 60,
+                    loop: true,
+                    showCursor: true,
+                    cursorChar: '|'
+                });
+            } catch (error) {
+                console.error('Typed.js initialization failed:', error);
+            }
+
+            try {
+                // Navbar toggle for mobile
+                $('.menu-btn').click(function(){
+                    $('.mobile-menu').slideToggle();
+                    $(this).find('i').toggleClass('fa-bars fa-times');
+                });
+            } catch (error) {
+                console.error('Navbar toggle failed:', error);
+            }
+
+            try {
+                // Scroll-up button show/hide
+                $(window).scroll(function(){
+                    if($(this).scrollTop() > 500){
+                        $('.scroll-up-btn').removeClass('hidden').addClass('block');
+                    } else {
+                        $('.scroll-up-btn').removeClass('block').addClass('hidden');
+                    }
+                });
+
+                // Scroll to top
+                $('.scroll-up-btn').click(function(){
+                    $('html, body').animate({scrollTop: 0}, 800);
+                    return false;
+                });
+            } catch (error) {
+                console.error('Scroll effects failed:', error);
+            }
+
+            try {
+                // Smooth scroll for menu links, adjust for navbar height
+                $('.menu-btn').click(function(){
+                    var target = $(this).attr('href');
+                    var navbarHeight = $('#navbar').outerHeight() || 60;
+                    $('html, body').animate({
+                        scrollTop: $(target).offset().top - navbarHeight
+                    }, 800);
+                    $('.mobile-menu').slideUp();
+                    $('.menu-btn i').removeClass('fa-times').addClass('fa-bars');
+                    return false;
+                });
+            } catch (error) {
+                console.error('Smooth scroll failed:', error);
+            }
+
+            try {
+                // Read more toggle
+                $('#read-more-btn').click(function(){
+                    $('#extra-content').slideToggle();
+                    $(this).text($(this).text() === 'Read more' ? 'Read less' : 'Read more');
+                });
+            } catch (error) {
+                console.error('Read more toggle failed:', error);
+            }
+
+            try {
+                // Section fade-in animations on scroll
+                $('section').waypoint(function(direction) {
+                    if (direction === 'down') {
+                        $(this.element).addClass('visible');
+                    }
+                }, { offset: '75%' });
+            } catch (error) {
+                console.error('Section animations failed:', error);
+            }
+
+            try {
+                // AJAX Form Submission
+                $('#contact-form').submit(function(e) {
+                    e.preventDefault();
+                    var formData = $(this).serialize();
+                    $.ajax({
+                        url: "https://formsubmit.co/ajax/asishadhikari009@gmail.com",
+                        method: "POST",
+                        data: formData,
+                        dataType: "json",
+                        success: function(response) {
+                            $('#form-message').text('Form submitted successfully. I will reach out soon.').addClass('text-green-600');
+                            $('#contact-form')[0].reset();
+                        },
+                        error: function(xhr, status, error) {
+                            $('#form-message').text('Error submitting form: ' + error).addClass('text-red-600');
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error('Form submission failed:', error);
+            }
+        });
+    </script>
+</body>
+</html>
